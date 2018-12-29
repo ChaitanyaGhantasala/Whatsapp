@@ -7,8 +7,8 @@ var watson = require('watson-developer-cloud');
 
 // Twilio Credentials
 
-const accountSid = 'AC600982e13d4dcbb82cf7daba17df346c';
-const authToken = '8c30bb714ba53ec346f41f89af9aeccc';
+const accountSid = '<Account-SID>';
+const authToken = '<AuthToken>';
 const client = require('twilio')(accountSid, authToken);
 app.use(bodyParser.urlencoded({ entended: false }));
 var env= require('dotenv').config()
@@ -16,9 +16,9 @@ var env= require('dotenv').config()
 // Watson Credentials
 
 var assistant = new watson.AssistantV1({
-  iam_apikey: 'wfXbQhfsLKWiaMuxZSiyodDF2Wxcu9maLuXXNwmsCNZD',
+  iam_apikey: '<APIkEY>',
   version: '2018-09-20',
-  url: 'https://gateway-syd.watsonplatform.net/assistant/api'
+  url: '<URL>'
 });
 var context1 = {};
 app.get('/test', function (req, res) {
@@ -30,7 +30,7 @@ app.post('/api', function (req, res) {
 	var From = req.body.From;
 	console.log(From);
 	assistant.message({
-		workspace_id: 'afff6af9-cd26-4644-96d9-00d6acbc6668',
+		workspace_id: '<Workspace_id>',
 		input: { 'text': req.body.Body },
 		context: context1
 	}, function (err, response) {
